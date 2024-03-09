@@ -1,0 +1,20 @@
+##Spring Configuration
+server:
+  port: 8080
+spring:
+  application:
+    name: NotificationService
+  devtools:
+    add-properties: false
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  profiles:
+    include:
+
+  rabbitmq:
+    username: "java"
+    password: "123456789"
+    port: "5671"
+    addresses: "amqps://b-3388ce15-15dd-42ed-af96-4ee77086637f.mq.us-east-1.amazonaws.com:5671"
