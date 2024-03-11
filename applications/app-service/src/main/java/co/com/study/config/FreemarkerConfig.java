@@ -8,12 +8,12 @@ import org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean;
 @Configuration
 public class FreemarkerConfig {
 
-    @Primary
     @Bean
-    public FreeMarkerConfigurationFactoryBean factoryBean() {
-        FreeMarkerConfigurationFactoryBean bean = new FreeMarkerConfigurationFactoryBean();
-        bean.setTemplateLoaderPath("classpath:/templates");
-        return bean;
+    public FreeMarkerConfigurationFactoryBean freeMarkerConfiguration() {
+        FreeMarkerConfigurationFactoryBean factoryBean = new FreeMarkerConfigurationFactoryBean();
+        factoryBean.setTemplateLoaderPath("classpath:/templates/");
+        return factoryBean;
     }
+
 
 }

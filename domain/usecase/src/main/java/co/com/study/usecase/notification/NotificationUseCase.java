@@ -23,7 +23,7 @@ public class NotificationUseCase {
         var usuario = usuarioRepository.findById(restauranteInput.getId());
         Mono.just(restauranteInput).zipWith(usuario).map(tuple -> restauranteInput.toBuilder().propetario(tuple.getT2()).build())
                 .doOnNext(s -> log.warn("Usuario asignado: " + s.toString()))
-                .doOnNext(restaurante -> sendNotification(restaurante.toString(), restaurante.getPropetario().getEmail()))
+                .doOnNext(restaurante -> sendNotification(restaurante, restaurante.getPropetario().getEmail()))
                 .subscribe();
 
         log.error(restauranteInput.toString());
@@ -46,13 +46,13 @@ public class NotificationUseCase {
                                 .doOnNext(usuario -> log.warn(usuario.toString()))
                                 .map(usuario -> restauranteInput.toBuilder().propetario(usuario).build()))
                 .doOnNext(s -> log.warn("Usuario asignado: " + s.toString()))
-                .doOnNext(restaurante -> sendNotification(restaurante.toString(), restaurante.getPropetario().getEmail()))
+                .doOnNext(restaurante -> sendNotification(restaurante, restaurante.getPropetario().getEmail()))
                 .subscribe();
     }
 
-    public void sendNotification(String message, String address){
-        mailRepository.sendMessage(message,address );
-        log.error(message);
+    public void sendNotification(Restaurante message, String address){
+        mailRepository.sendMessageRestaurante(message,address );
+        log.error(message.toString());
     }
 
 }
