@@ -16,3 +16,9 @@ project(':model').projectDir = file('./domain/model')
 project(':usecase').projectDir = file('./domain/usecase')
 include ':rabbit-controller'
 project(':rabbit-controller').projectDir = file('./infrastructure/entry-points/rabbit-controller')
+include ':ses-adapter'
+project(':ses-adapter').projectDir = file('./infrastructure/driven-adapters/ses-adapter')
+include ':r2dbc-postgresql'
+project(':r2dbc-postgresql').projectDir = file('./infrastructure/driven-adapters/r2dbc-postgresql')
+include ':mapper'
+project(':mapper').projectDir = file('./infrastructure/driven-adapters/mapper')

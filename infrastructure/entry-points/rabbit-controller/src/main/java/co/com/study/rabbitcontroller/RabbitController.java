@@ -18,15 +18,13 @@ public class RabbitController {
 
     private final NotificationUseCase notificationUseCase;
 
+
     @RabbitListener(queues = "queue1", ackMode = "AUTO")
-    public void listenQueue1(String message) {
-        try {
-            var x = mapper.readValue(message, Restaurante.class);
-            log.warn("resultado: " + x.toString());
-        } catch (JsonProcessingException e) {
-            log.error(e.getMessage());
-        }
-        log.info(message);
+    public void listenQueue1(String message) throws JsonProcessingException {
+        notificationUseCase.sendRestauranteNotification(mapper.readValue(message, Restaurante.class));
+        //log.warn("resultado: " + x.toString());
+        //notificationUseCase.sendNotification(message);
+
     }
 
 }

@@ -1,6 +1,9 @@
 package co.com.study.model.restaurante;
-import lombok.Builder;
+
+import co.com.study.model.usuario.Usuario;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,6 +15,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder(toBuilder = true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Restaurante {
 
     private Long id;
@@ -28,6 +32,6 @@ public class Restaurante {
 
     private String telefono;
 
-    private Long propietario;
+    private Usuario propetario;
 
 }

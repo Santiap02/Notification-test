@@ -85,6 +85,6 @@ tasks.named('wrapper') {
 }
 cleanPlugin {
     modelProps {
-        whitelistedDependencies = "slf4j-api"
+        whitelistedDependencies = "slf4j-api, jackson-databind"
     }
 }
