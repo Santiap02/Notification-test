@@ -32,6 +32,6 @@ public class Restaurante {
 
     private String telefono;
 
-    private Usuario propetario;
+    private Usuario propietario;
 
 }

@@ -1,11 +1,9 @@
 package co.com.study.model.mail;
 
-import co.com.study.model.restaurante.Restaurante;
-
 public interface MailRepository {
 
-    void sendMessage(String message, String address);
+    void sendSimpleMail(Object message, String address, String subject);
 
 
-    void sendMessageRestaurante(Restaurante restaurante, String address);
+    void sendMessageTemplate(Object data, String address, String subject);
 }
